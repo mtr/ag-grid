@@ -214,7 +214,7 @@ declare module ag.grid {
         getIsScrollLag(): () => boolean;
         getSortingOrder(): string[];
         getSlaveGrids(): GridOptions[];
-        getGroupRowRenderer(): Object | Function;
+        getGroupRowRenderer(): Function | Object;
         getRowHeight(): number;
         getOverlayLoadingTemplate(): string;
         getOverlayNoRowsTemplate(): string;
@@ -1778,7 +1778,7 @@ declare module ag.grid {
         selectIndex(index: any, tryMulti: any, suppressEvents: any): void;
         deselectIndex(index: number, suppressEvents?: boolean): void;
         selectNode(node: any, tryMulti?: boolean, suppressEvents?: boolean): void;
-        deselectNode(node: any): void;
+        deselectNode(node: any, suppressEvents?: boolean): void;
         selectAll(): void;
         deselectAll(): void;
         recomputeAggregates(): void;

@@ -3574,8 +3574,7 @@ var ag;
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
-    __.prototype = b.prototype;
-    d.prototype = new __();
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var ag;
 (function (ag) {
@@ -9332,8 +9331,9 @@ var ag;
                 if (suppressEvents === void 0) { suppressEvents = false; }
                 this.selectionController.selectNode(node, tryMulti, suppressEvents);
             };
-            GridApi.prototype.deselectNode = function (node) {
-                this.selectionController.deselectNode(node);
+            GridApi.prototype.deselectNode = function (node, suppressEvents) {
+                if (suppressEvents === void 0) { suppressEvents = false; }
+                this.selectionController.deselectNode(node, suppressEvents);
             };
             GridApi.prototype.selectAll = function () {
                 this.selectionController.selectAll();
